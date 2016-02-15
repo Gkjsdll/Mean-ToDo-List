@@ -4,6 +4,9 @@ html
     title= title
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    script(src="/bower_components/angular/angular.min.js")
+    script(src="/bower_components/jquery/dist/jquery.min.js")
     script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
-  body
+    script(src="/js/main.js")
+  body(ng-app="toDoList" ng-controller="toDoCtrl")
     block content
