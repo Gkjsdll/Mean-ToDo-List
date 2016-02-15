@@ -30,7 +30,7 @@ block content
           td {{task.desc}}
           td {{task.due}}
           td
-            input(type="checkbox", ng-model="task._id", ng-change="toggleComplete()").checkbox
+            input(type="checkbox", ng-model="task.complete", ng-change="toggleComplete(task._id)").checkbox
           td
             button(ng-click="deleteTask()").btn.btn-danger.btn-sm
               span.glyphicon.glyphicon-trash

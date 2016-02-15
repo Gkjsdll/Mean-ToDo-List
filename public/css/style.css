@@ -1,0 +1,16 @@
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  us-select: none;
+}
+
+*:hover {
+  cursor: default;
+}
+
+th:hover, button:hover, input[type="checkbox"] {
+  cursor: pointer;
+}

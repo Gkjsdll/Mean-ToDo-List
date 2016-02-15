@@ -17,6 +17,7 @@ app.controller("toDoCtrl", function($http, $scope){
     $http.post("/tasks", $scope.task)
     .then(function(res){
       $scope.tasks.push(res.data);
+      $scope.task = null;
     }, function(err){
       console.error(err);
     })
@@ -33,23 +34,23 @@ app.controller("toDoCtrl", function($http, $scope){
   }
 
   $scope.sortBy = function(clicked) {
-    console.log("$scope.sort:", $scope.sort);
-    console.log(clicked);
     var sort = $scope.sort;
-    if(sort === clicked){
+    console.log(clicked);
+    console.log(sort.substr(1));
+    if(sort.substr(1) === clicked){
       if(sort.charAt(0) === "+"){
-        $scope.sort = `-${sort}`;
+        $scope.sort = `-${clicked}`;
       } else {
-        $scope.sort = `+${sort}`;
+        $scope.sort = `+${clicked}`;
       }
     } else {
       $scope.sort = `+${clicked}`;
     }
   }
 
-  $scope.toggleComplete = function($event) {
-    // $http.put(`/tasks/${this.}`)
-    console.log($event.currentTarget);
-    // console.log(this);
+  $scope.toggleComplete = function(id) {
+    $http.put(`/tasks/${id}`, this.task.complete)
+      .then(function(res){},function(err) )
+    console.log(this.task.complete);
   }
 });
