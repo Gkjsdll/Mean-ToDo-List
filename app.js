@@ -7,6 +7,16 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+var mongoose = require("mongoose");
+var mongoUrl = "mongodb://localhost/toDoList";
+
+mongoose.connect(mongoUrl, function(err) {
+  if(err) {
+    console.log("Mongo err:", err);
+  } else {
+    console.log(`MongoDB connected to ${mongoUrl}`);
+  }
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

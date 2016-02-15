@@ -6,8 +6,8 @@ app.controller("toDoCtrl", function($http){
   console.log("toDoCtrl");
   $http.get("/tasks")
     .then(function(data){
-      console.log("success:", data);
+      console.log(data);
     }, function(err){
-      console.error("err:", err);
+      console.error(err);
     });
 });
