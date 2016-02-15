@@ -86,7 +86,9 @@ app.controller("toDoCtrl", function($http, $scope, SweetAlert){
         if(isConfirm) {
           $http.delete(`/tasks/${thisTask.task._id}`)
           .then(function(res) {
-            $scope.tasks.splice(thisTask.$index, 1);
+            console.log("index:", thisTask.$index);
+            console.log("deletedTask:", thisTask.task);
+            $scope.tasks.splice(thisTask.$index, 1); //this seems to be removing the wrong task, offset by 1
           },function(err) {
             return console.error(err);
           });
@@ -101,8 +103,6 @@ app.controller("toDoCtrl", function($http, $scope, SweetAlert){
 
   $scope.sortBy = function(clicked) {
     var sort = $scope.sort;
-    console.log(clicked);
-    console.log(sort.substr(1));
     if(sort.substr(1) === clicked){
       if(sort.charAt(0) === "+"){
         $scope.sort = `-${clicked}`;
