@@ -1,0 +1,22 @@
+{
+  "name": "toDoTest",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Zack Winchell <zackwinchell@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "../public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0"
+  }
+}
