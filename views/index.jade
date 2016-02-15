@@ -3,8 +3,23 @@ extends layout
 block content
   .container
     h1= title
-    p Welcome to #{title}
+    form(ng-submit="addTask()")
+      .form-group
+        h3 Add Task
+      .form-group
+        label Name:
+        input(type="text", placeholder="Buy Eggs", ng-model="task.name", required).form-control
+      .form-group
+        label Description:
+        input(type="text", placeholder="2 Dozen, for baking", ng-model="task.desc", required).form-control
+      .form-group
+        label Due:
+        input(type="date", ng-model="task.due", required).form-control
+      .form-group
+        button.btn.btn-success Add Task
     table.table(ng-if="toDoItem[0]")
       tbody
         tr
           th Test
+        tr(ng-repeat("task in tasks track by $index"))
+          td
