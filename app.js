@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var mongoose = require("mongoose");
-var mongoUrl = "mongodb://localhost/toDoList";
+var mongoUrl = process.env.MONGOLAB_URI || "mongodb://localhost/toDoList";
 
 mongoose.connect(mongoUrl, function(err) {
   if(err) {
