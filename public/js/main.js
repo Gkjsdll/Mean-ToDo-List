@@ -114,8 +114,7 @@ app.controller("toDoCtrl", function($http, $scope, SweetAlert){
 
   $scope.toggleComplete = function(id) {
     $http.put(`/tasks/${id}`, {complete: this.task.complete})
-      .then(function(res) {
-        console.log(res);
+      .then(function() {
       },
       function(err){
         console.error(err);
