@@ -5,12 +5,30 @@
   -moz-user-select: none;
   -ms-user-select: none;
   us-select: none;
+  font-family: 'Architects Daughter', cursive;
 }
 
 *:hover {
   cursor: default;
 }
 
+body {
+  background-color: #fff6e0;
+}
+
 th:hover, button:hover, input[type="checkbox"] {
   cursor: pointer;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: rgb(180, 180, 180);
+}
+
+th {
+  font-size: 24px;
+}
+
+td {
+  font-size: 18px;
 }

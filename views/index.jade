@@ -5,8 +5,6 @@ block content
     h1= title
     form(ng-submit="addTask()")
       .form-group
-        h3 Add Task
-      .form-group
         label Name:
         input(type="text", placeholder="Buy Eggs", ng-model="task.name", required).form-control
       .form-group
@@ -25,7 +23,7 @@ block content
           th(ng-click="sortBy('due')") Due
           th Complete
           th Remove
-        tr(ng-repeat="task in tasks | orderBy: sort track by $index", ng-class="strike: task.complete")
+        tr(ng-repeat="task in tasks | orderBy: sort track by $index", ng-class="{complete: task.complete}")
           td {{task.name}}
           td {{task.desc}}
           td {{task.due}}
