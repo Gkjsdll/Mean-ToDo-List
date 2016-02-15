@@ -17,9 +17,17 @@ block content
         input(type="date", ng-model="task.due", required).form-control
       .form-group
         button.btn.btn-success Add Task
-    table.table(ng-if="toDoItem[0]")
+    table.table(ng-if="tasks[0]")
       tbody
         tr
-          th Test
-        tr(ng-repeat("task in tasks track by $index"))
+          th Name
+          th Description
+          th Due
+          th Remove
+        tr(ng-repeat="task in tasks track by $index")
+          td {{task.name}}
+          td {{task.desc}}
+          td {{task.due}}
           td
+            button(ng-click="deleteTask()").btn.btn-danger.btn-sm
+              span.glyphicon.glyphicon-trash

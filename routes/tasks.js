@@ -15,6 +15,17 @@ router.post("/", function(req, res, next) {
   var task = new Task();
   task.name = req.body.name;
   task.desc = req.body.desc;
+  task.due = req.body.due;
+  task.save(function(err, savedTask) {
+    if(err) return res.status(400).send(err);
+    res.send(savedTask);
+  });
+});
+
+router.delete("/:taskId", function(req, res, next) {
+  Task.findByIdAndRemove(req.params.taskId, function(err, task) {
+    if(err) return console.error(err);
+  });
 });
 
 module.exports = router;
