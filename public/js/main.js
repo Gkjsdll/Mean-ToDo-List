@@ -1,8 +1,8 @@
 "use strict";
 
-var app = angular.module("toDoList", []);
+var app = angular.module("toDoList", [SweetAlert]);
 
-app.controller("toDoCtrl", function($http, $scope){
+app.controller("toDoCtrl", function($http, $scope, SweetAlert){
 
   $scope.sort = "+name";
 
