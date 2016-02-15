@@ -49,8 +49,12 @@ app.controller("toDoCtrl", function($http, $scope){
   }
 
   $scope.toggleComplete = function(id) {
-    $http.put(`/tasks/${id}`, this.task.complete)
-      .then(function(res){},function(err) )
-    console.log(this.task.complete);
+    $http.put(`/tasks/${id}`, {complete: this.task.complete})
+      .then(function(res) {
+        console.log(res);
+      },
+      function(err){
+        console.error(err);
+      });
   }
 });

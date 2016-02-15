@@ -29,4 +29,15 @@ router.delete("/:taskId", function(req, res, next) {
   });
 });
 
+router.put("/:taskId", function(req, res, next) {
+  Task.findById(req.params.taskId, function(err, task) {
+    if(err) return res.status(400).send(err);
+    task.complete = req.body.complete;
+    task.save(function(err, savedTask) {
+      if(err) return res.status(400).send(err);
+      res.send(savedTask);
+    });
+  });
+});
+
 module.exports = router;
