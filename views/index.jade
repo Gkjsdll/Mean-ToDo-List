@@ -20,12 +20,12 @@ block content
     table.table(ng-if="tasks[0]")
       tbody
         tr
-          th Name
-          th Description
-          th Due
+          th(ng-click="sortBy('name')") Name
+          th(ng-click="sortBy('desc')") Description
+          th(ng-click="sortBy('due')") Due
           th Complete
           th Remove
-        tr(ng-repeat="task in tasks track by $index")
+        tr(ng-repeat="task in tasks | orderBy: sort track by $index")
           td {{task.name}}
           td {{task.desc}}
           td {{task.due}}
