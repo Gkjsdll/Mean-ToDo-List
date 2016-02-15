@@ -7,9 +7,7 @@ app.controller("toDoCtrl", function($http, $scope){
 
   $http.get("/tasks")
     .then(function(res){
-      console.log("Tasks:", res.data);
       $scope.tasks = res.data;
-      console.log("$scope.tasks", $scope.tasks);
     }, function(err){
       console.error(err);
     });
@@ -18,20 +16,22 @@ app.controller("toDoCtrl", function($http, $scope){
       $http.post("/tasks", $scope.task)
         .then(function(res){
           $scope.tasks.push(res.data);
-          console.log(res);
         }, function(err){
           console.error(err);
         })
     }
 
     $scope.deleteTask = function() {
-      console.log("deleteTask");
+      var thisTask = this;
       $http.delete(`/tasks/${this.task._id}`)
         .then(function(res) {
-          console.log(res);
+          $scope.tasks.splice(thisTask.$index, 1);
         },function(err) {
           return console.error(err);
         });
-      console.log(this.task._id);
+    }
+
+    $scope.toggleComplete = function() {
+      console.log(this);
     }
 });

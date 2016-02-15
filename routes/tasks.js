@@ -23,8 +23,9 @@ router.post("/", function(req, res, next) {
 });
 
 router.delete("/:taskId", function(req, res, next) {
-  Task.findByIdAndRemove(req.params.taskId, function(err, task) {
-    if(err) return console.error(err);
+  Task.findByIdAndRemove(req.params.taskId, function(err, deletedTask) {
+    if(err) return res.status(400).send(err);
+    res.send(deletedTask);
   });
 });
 
