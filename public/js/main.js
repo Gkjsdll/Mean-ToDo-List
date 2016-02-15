@@ -86,9 +86,10 @@ app.controller("toDoCtrl", function($http, $scope, SweetAlert){
         if(isConfirm) {
           $http.delete(`/tasks/${thisTask.task._id}`)
           .then(function(res) {
-            console.log("index:", thisTask.$index);
-            console.log("deletedTask:", thisTask.task);
-            $scope.tasks.splice(thisTask.$index, 1); //this seems to be removing the wrong task, offset by 1
+            // console.log("index:", thisTask.$index);
+            // console.log("indexOf:", $scope.tasks.indexOf(thisTask.task));
+            // console.log("deletedTask:", thisTask.task);
+            $scope.tasks.splice($scope.tasks.indexOf(thisTask.task), 1); //this seems to be removing the wrong task, offset by 1
           },function(err) {
             return console.error(err);
           });
